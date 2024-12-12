@@ -756,6 +756,7 @@ int enter(struct entry_settings *opts)
 	if (opts->ngroups != 0 && setgroups(opts->ngroups, opts->groups) == -1) {
 		err(1, "setgroups");
 	}
+	fprintf(stderr, ">>>>GID %d", opts->gid);
 	if (setregid(opts->gid, opts->gid) == -1) {
 		err(1, "setregid");
 	}
